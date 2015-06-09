@@ -14,6 +14,7 @@
     CAShapeLayer *shapeLayer2;
     CAGradientLayer *gradientLayer;
     CGFloat radius; //半圆的半径
+    
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -21,7 +22,6 @@
     if (self) {
         radius = CGRectGetWidth(self.frame) / 8.0;
         _lineWidth = radius;
-        _color = [UIColor greenColor];
         
         //渐变layer
         gradientLayer =  [CAGradientLayer layer];
@@ -49,7 +49,7 @@
     shapeLayer.frame = self.frame;
     shapeLayer.fillColor = [UIColor clearColor].CGColor;
     shapeLayer.lineWidth = _lineWidth;
-    shapeLayer.strokeColor = _color.CGColor;
+    shapeLayer.strokeColor = [UIColor redColor].CGColor;
     shapeLayer.lineCap = kCALineCapRound;
     shapeLayer.lineJoin = kCALineJoinRound;
     return shapeLayer;
@@ -229,13 +229,7 @@
     [shapeLayer2 addAnimation:group2 forKey:nil];
 }
 
-#pragma mark - Setter 
-
-- (void)setColor:(UIColor *)color {
-    _color = color;
-    shapeLayer1.strokeColor = color.CGColor;
-    shapeLayer2.strokeColor = color.CGColor;
-}
+#pragma mark - Setter
 
 - (void)setLineWidth:(CGFloat)lineWidth {
     _lineWidth = lineWidth;

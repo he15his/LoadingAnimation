@@ -10,7 +10,6 @@
 
 @interface SnakeLoadingView : UIView
 @property (nonatomic, assign) CGFloat lineWidth;
-@property (nonatomic, strong) UIColor *color;
 
 - (void)stopAnimation;
 - (void)starAnimation;
